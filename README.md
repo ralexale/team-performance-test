@@ -1,5 +1,11 @@
 # Coupon Management and Redemption System
 
+#Team
+-Hector Alejandro Montaña Flores
+-Harold Andres Chaverra
+-Tatiana Maldonado Perez
+-Mateo Saldarriaga Vidales
+
 ## Project Description
 
 The Coupon Management and Redemption System is a crucial component of Riwi's e-commerce project. This system allows users to manage and redeem discount coupons for online purchases. The API offers the following key functionalities:
@@ -85,13 +91,75 @@ The system uses a MySQL database with the following structure:
 
 ## Technologies Used
 
-- Backend: (Specify your backend technology, e.g., Node.js, Express)
+- Backend: Spring Boot
 - Database: MySQL
-- (Add any other relevant technologies)
+- Principles: SOLID
+- Documentation: Swagger
 
 ## Contributing
 
-(Add guidelines for contributing to the project)
+# Mateo: User Management
+# Responsibilities:
+- Implement user registration.
+- Create the database structure for users.
+- Develop user validation and authentication logic.
+- Provide API endpoints for user registration and authentication.
+
+# Contribution:
+- Create the user model.
+- Implement user registration functionality in the backend.
+- Add endpoints for user registration and authentication.
+- Write unit tests for user management functionality.
+
+
+# Harold: Coupon Management
+
+# Responsibilities:
+- Implement the creation and listing of coupons.
+- Develop logic for modifying and deleting coupons, ensuring that coupons have not been used.
+- Implement verification of coupon validity (expiration date, status).
+
+# Contribution:
+- Create the Coupon model.
+- Implement functionality to create, list, modify and delete coupons.
+- Add logic to check the validity of coupons.
+- Provide API endpoints for coupon management.
+- Write unit tests for the coupon management functionality.
+
+
+# Hector: Coupon Redemption
+# Responsibilities:
+- Implement functionality to allow users to redeem coupons on purchases.
+- Develop logic to query coupon redemption history per user.
+- Ensure that a registered user can only redeem a coupon once.
+
+# Contribution:
+
+- Create the Redemption model.
+- Implement functionality to redeem coupons and view redemption history.
+- Add validation to ensure coupons are not redeemed more than once per user.
+- Provide API endpoints for coupon redemption and history query.
+- Write unit tests for coupon redemption functionality.
+
+
+# Tatiana: Product Management
+# Responsibilities:
+- Implement the functionality to list products.
+- Develop business logic for product management (e.g. inventory management).
+
+# Contribution:
+- Create the Product model.
+- Implement the functionality to list products.
+- Provide API endpoints for product management.
+- Write unit tests for product management functionality.
+
+
+# General business rules
+# Shared responsibility:
+
+- Implement business rules that affect more than one functionality, such as validating that a user cannot redeem the same coupon more than once.
+- Ensure data consistency and referential integrity in the database.
+- Collaborate in the integration of different functionalities to guarantee a cohesive system.
 
 ## License
 

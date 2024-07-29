@@ -12,10 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.riwi.performance.test.riwi_perfomance_test.api.dto.request.RedemptionRequest;
 import com.riwi.performance.test.riwi_perfomance_test.api.dto.response.RedemptionResponse;
+import com.riwi.performance.test.riwi_perfomance_test.domain.entities.Coupon;
 import com.riwi.performance.test.riwi_perfomance_test.domain.entities.Redemption;
+import com.riwi.performance.test.riwi_perfomance_test.domain.repositories.CouponRepository;
 import com.riwi.performance.test.riwi_perfomance_test.domain.repositories.RedemptionRepository;
 import com.riwi.performance.test.riwi_perfomance_test.infrastructure.abstract_services.IRedemptionService;
 import com.riwi.performance.test.riwi_perfomance_test.infrastructure.mappers.RedemptionMapper;
+import com.riwi.performance.test.riwi_perfomance_test.utils.enums.StatusCoupon;
 import com.riwi.performance.test.riwi_perfomance_test.utils.exeptions.IdNotFoundException;
 
 import lombok.AllArgsConstructor;
@@ -25,16 +28,24 @@ import lombok.AllArgsConstructor;
 public class RedemptionService implements IRedemptionService {
 
     @Autowired
-    private RedemptionRepository redemptionRepository;
+    private final RedemptionRepository redemptionRepository;
 
     @Autowired
-    private RedemptionMapper redemptionMapper;
+    private final RedemptionMapper redemptionMapper;
+
+    @Autowired
+    private final CouponRepository couponRepository;
 
     @Override
     @Transactional
     public RedemptionResponse create(RedemptionRequest request) {
 
         Redemption redemption = redemptionMapper.toRedemption(request);
+
+        Coupon coupon = couponRepository.findById(request.getCouponId())
+                .orElseThrow(() -> new IdNotFoundException("survey", request.getCouponId()));
+
+        coupon.setStatus(StatusCoupon.EXPIRED);
 
         redemption.setRedemptionDate(LocalDateTime.now());
 

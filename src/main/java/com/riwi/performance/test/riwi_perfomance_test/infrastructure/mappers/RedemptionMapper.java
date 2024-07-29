@@ -8,23 +8,25 @@ import com.riwi.performance.test.riwi_perfomance_test.api.dto.request.Redemption
 import com.riwi.performance.test.riwi_perfomance_test.api.dto.response.RedemptionResponse;
 import com.riwi.performance.test.riwi_perfomance_test.domain.entities.Redemption;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { ProductMapper.class, UserMapper.class, CouponMapper.class })
 public interface RedemptionMapper {
 
-    @Mappings({
-            @Mapping(target = "id", ignore = true),
-            @Mapping(target = "redemptionDate", ignore = true),
-    })
-    Redemption toRedemption(RedemptionRequest redemptionRequest);
+        @Mappings({
+                        @Mapping(target = "id", ignore = true),
+                        @Mapping(target = "redemptionDate", ignore = true),
+                        @Mapping(target = "user.id", source = "userId"),
+                        @Mapping(target = "product.id", source = "productId"),
+                        @Mapping(target = "coupon.id", source = "couponId"),
+        })
+        Redemption toRedemption(RedemptionRequest redemptionRequest);
 
-
-    @Mappings({
-        @Mapping(target = "id", source = "id"),
-        @Mapping(target = "redemptionDate", source = "redemptionDate"),
-        @Mapping(target = "user", source = "userId"),
-        @Mapping(target = "product", source = "productId"),
-        @Mapping(target = "coupon", source = "couponId"),
-    })
-    RedemptionResponse toRedemptionResponse(Redemption redemption);
+        @Mappings({
+                        @Mapping(target = "id", source = "id"),
+                        @Mapping(target = "redemptionDate", source = "redemptionDate"),
+                        @Mapping(target = "user", source = "user"),
+                        @Mapping(target = "product", source = "product"),
+                        @Mapping(target = "coupon", source = "coupon"),
+        })
+        RedemptionResponse toRedemptionResponse(Redemption redemption);
 
 }

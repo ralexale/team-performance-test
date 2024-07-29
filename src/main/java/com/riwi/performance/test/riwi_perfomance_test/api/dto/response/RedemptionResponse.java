@@ -13,9 +13,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RedemptionResponse {
     private String id;
-    private String product;
-    private String coupon;
-    private String user;
+    private ProductResponse product;
+    private CouponResponse coupon;
+    private UserResponse user;
     private LocalDateTime redemptionDate;
-    
+
 }

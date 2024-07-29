@@ -1,29 +1,23 @@
 # Coupon Management and Redemption System
 
-#Team
--Hector Alejandro Montaña Flores
--Harold Andres Chaverra
--Tatiana Maldonado Perez
--Mateo Saldarriaga Vidales
+# Team
+## Roles
+-Hector Alejandro Montaña Flores - Leader
+
+-Harold Andres Chaverra - Developer
+
+-Tatiana Maldonado Perez - Developer
+
+-Mateo Saldarriaga Vidales - Developer
 
 ## Project Description
 
 The Coupon Management and Redemption System is a crucial component of Riwi's e-commerce project. This system allows users to manage and redeem discount coupons for online purchases. The API offers the following key functionalities:
 
 ### User Management
-- User registration
-
 ### Coupon Management
-- Creation and listing of coupons
-- Modification and deletion of unused coupons
-- Verification of coupon validity (expiration date, status)
-
 ### Coupon Redemption
-- Allow users to redeem coupons on purchases
-- Query redemption history by user
-
 ### Product Management
-- Product listing
 
 ## General Business Rules
 
@@ -51,32 +45,6 @@ The system uses a MySQL database with the following structure:
 ![image](https://github.com/user-attachments/assets/e9a45b8d-9ea9-4a8b-9ebf-850ed41863d9)
 
 
-### Users Table
-- id (PK)
-- name
-- email
-- password
-
-### Products Table
-- id (PK)
-- name
-- description
-- price
-
-### Coupons Table
-- id (PK)
-- code
-- percentage
-- expiration_date
-- status
-
-### Redemptions Table
-- id (PK)
-- user_id (FK)
-- coupon_id (FK)
-- product_id (FK)
-- redemption_date
-
 ## Setup and Installation
 
 1. Clone the repository
@@ -86,8 +54,9 @@ The system uses a MySQL database with the following structure:
 5. Run the application
 
 ## API Endpoints
+Documentation in Swagger
 
-(List and describe the main API endpoints here)
+http://localhost:8080/api/v1/swagger-ui/index.html#/
 
 ## Technologies Used
 
@@ -95,8 +64,9 @@ The system uses a MySQL database with the following structure:
 - Database: MySQL
 - Principles: SOLID
 - Documentation: Swagger
+- Deploy: Render
 
-## Contributing
+## Contributing and Proposed solution
 
 # Mateo: User Management
 # Responsibilities:
@@ -161,11 +131,14 @@ The system uses a MySQL database with the following structure:
 - Ensure data consistency and referential integrity in the database.
 - Collaborate in the integration of different functionalities to guarantee a cohesive system.
 
-## License
 
-(Specify the project license)
+# Board at the start 
+![start](https://github.com/user-attachments/assets/7f7f1bbc-d335-4ce0-9464-9aeefd0581ef)
 
-## Contact
 
-For any queries regarding this project, please contact:
-(Add contact information)
+# Board at the End
+![end](https://github.com/user-attachments/assets/32ace747-c349-4102-ac9b-18ce9f31b3ab)
+
+# Link Board
+https://app.clickup.com/9013368381/v/b/s/90131518654
+

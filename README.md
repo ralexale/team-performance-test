@@ -130,3 +130,15 @@ http://localhost:8080/api/v1/swagger-ui/index.html#/
 - Implement business rules that affect more than one functionality, such as validating that a user cannot redeem the same coupon more than once.
 - Ensure data consistency and referential integrity in the database.
 - Collaborate in the integration of different functionalities to guarantee a cohesive system.
+
+
+# Board at the start 
+![start](https://github.com/user-attachments/assets/7f7f1bbc-d335-4ce0-9464-9aeefd0581ef)
+
+
+# Board at the End
+![end](https://github.com/user-attachments/assets/32ace747-c349-4102-ac9b-18ce9f31b3ab)
+
+# Link Board
+https://app.clickup.com/9013368381/v/b/s/90131518654
+

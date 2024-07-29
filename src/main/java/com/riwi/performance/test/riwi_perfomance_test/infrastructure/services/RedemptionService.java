@@ -13,14 +13,19 @@ import org.springframework.transaction.annotation.Transactional;
 import com.riwi.performance.test.riwi_perfomance_test.api.dto.request.RedemptionRequest;
 import com.riwi.performance.test.riwi_perfomance_test.api.dto.response.RedemptionResponse;
 import com.riwi.performance.test.riwi_perfomance_test.domain.entities.Coupon;
+import com.riwi.performance.test.riwi_perfomance_test.domain.entities.Product;
 import com.riwi.performance.test.riwi_perfomance_test.domain.entities.Redemption;
+import com.riwi.performance.test.riwi_perfomance_test.domain.entities.User;
 import com.riwi.performance.test.riwi_perfomance_test.domain.repositories.CouponRepository;
+import com.riwi.performance.test.riwi_perfomance_test.domain.repositories.ProductRepository;
 import com.riwi.performance.test.riwi_perfomance_test.domain.repositories.RedemptionRepository;
+import com.riwi.performance.test.riwi_perfomance_test.domain.repositories.UserRepository;
 import com.riwi.performance.test.riwi_perfomance_test.infrastructure.abstract_services.IRedemptionService;
 import com.riwi.performance.test.riwi_perfomance_test.infrastructure.mappers.RedemptionMapper;
 import com.riwi.performance.test.riwi_perfomance_test.utils.enums.StatusCoupon;
 import com.riwi.performance.test.riwi_perfomance_test.utils.exeptions.IdNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -36,6 +41,12 @@ public class RedemptionService implements IRedemptionService {
     @Autowired
     private final CouponRepository couponRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
     @Override
     @Transactional
     public RedemptionResponse create(RedemptionRequest request) {
@@ -43,9 +54,22 @@ public class RedemptionService implements IRedemptionService {
         Redemption redemption = redemptionMapper.toRedemption(request);
 
         Coupon coupon = couponRepository.findById(request.getCouponId())
-                .orElseThrow(() -> new IdNotFoundException("survey", request.getCouponId()));
+                .orElseThrow(() -> new IdNotFoundException("COUPON", request.getCouponId()));
+
+        User managedUser = userRepository.findById(redemption.getUser().getId())
+                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+        Coupon managedCoupon = couponRepository.findById(redemption.getCoupon().getId())
+                .orElseThrow(() -> new EntityNotFoundException("Coupon not found"));
+        Product managedProduct = productRepository.findById(redemption.getProduct().getId())
+                .orElseThrow(() -> new EntityNotFoundException("Product not found"));
+
+        redemption.setUser(managedUser);
+        redemption.setCoupon(managedCoupon);
+        redemption.setProduct(managedProduct);
 
         coupon.setStatus(StatusCoupon.EXPIRED);
+        coupon.setExpiration_time(LocalDateTime.now());
+        ;
 
         redemption.setRedemptionDate(LocalDateTime.now());
 

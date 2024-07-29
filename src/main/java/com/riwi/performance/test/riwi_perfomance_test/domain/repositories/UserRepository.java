@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import com.riwi.performance.test.riwi_perfomance_test.domain.entities.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID> {
+public interface UserRepository extends JpaRepository<User,UUID> {
 }

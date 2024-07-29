@@ -15,19 +15,9 @@
 The Coupon Management and Redemption System is a crucial component of Riwi's e-commerce project. This system allows users to manage and redeem discount coupons for online purchases. The API offers the following key functionalities:
 
 ### User Management
-- User registration
-
 ### Coupon Management
-- Creation and listing of coupons
-- Modification and deletion of unused coupons
-- Verification of coupon validity (expiration date, status)
-
 ### Coupon Redemption
-- Allow users to redeem coupons on purchases
-- Query redemption history by user
-
 ### Product Management
-- Product listing
 
 ## General Business Rules
 

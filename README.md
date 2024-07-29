@@ -1,10 +1,11 @@
 # Coupon Management and Redemption System
 
-#Team
--Hector Alejandro Montaña Flores
--Harold Andres Chaverra
--Tatiana Maldonado Perez
--Mateo Saldarriaga Vidales
+# Team
+## Roles
+-Hector Alejandro Montaña Flores - Leader
+-Harold Andres Chaverra - Developer
+-Tatiana Maldonado Perez - Developer
+-Mateo Saldarriaga Vidales - Developer
 
 ## Project Description
 
@@ -51,32 +52,6 @@ The system uses a MySQL database with the following structure:
 ![image](https://github.com/user-attachments/assets/e9a45b8d-9ea9-4a8b-9ebf-850ed41863d9)
 
 
-### Users Table
-- id (PK)
-- name
-- email
-- password
-
-### Products Table
-- id (PK)
-- name
-- description
-- price
-
-### Coupons Table
-- id (PK)
-- code
-- percentage
-- expiration_date
-- status
-
-### Redemptions Table
-- id (PK)
-- user_id (FK)
-- coupon_id (FK)
-- product_id (FK)
-- redemption_date
-
 ## Setup and Installation
 
 1. Clone the repository
@@ -95,8 +70,9 @@ The system uses a MySQL database with the following structure:
 - Database: MySQL
 - Principles: SOLID
 - Documentation: Swagger
+- Deploy: Render
 
-## Contributing
+## Contributing and Proposed solution
 
 # Mateo: User Management
 # Responsibilities:
@@ -160,12 +136,3 @@ The system uses a MySQL database with the following structure:
 - Implement business rules that affect more than one functionality, such as validating that a user cannot redeem the same coupon more than once.
 - Ensure data consistency and referential integrity in the database.
 - Collaborate in the integration of different functionalities to guarantee a cohesive system.
-
-## License
-
-(Specify the project license)
-
-## Contact
-
-For any queries regarding this project, please contact:
-(Add contact information)

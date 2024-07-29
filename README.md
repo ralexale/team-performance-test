@@ -3,8 +3,11 @@
 # Team
 ## Roles
 -Hector Alejandro Montaña Flores - Leader
+
 -Harold Andres Chaverra - Developer
+
 -Tatiana Maldonado Perez - Developer
+
 -Mateo Saldarriaga Vidales - Developer
 
 ## Project Description
@@ -61,8 +64,9 @@ The system uses a MySQL database with the following structure:
 5. Run the application
 
 ## API Endpoints
+Documentation in Swagger
 
-(List and describe the main API endpoints here)
+http://localhost:8080/api/v1/swagger-ui/index.html#/
 
 ## Technologies Used
 

@@ -1,5 +1,7 @@
 package com.riwi.performance.test.riwi_perfomance_test.infrastructure.mappers;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
@@ -15,5 +17,7 @@ public interface ProductMapper {
   Product requestToEntity(ProductRequest request);
 
   ProductResponse entityToResponse(Product product);
+
+  List<ProductResponse> productListToListResponse(List<Product> products);
 
 }
